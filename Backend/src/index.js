@@ -13,8 +13,9 @@ const pool = new Pool({
 
 const dbconnection = async() => {
     try {
-        await pool.connect()
+        const client = await pool.connect()
         console.log('Database Connected Successfully')
+        client.release()
     } catch (error) {
         console.log('Database Connection Failed.')
         process.exit(1)
