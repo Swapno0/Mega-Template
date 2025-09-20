@@ -35,3 +35,4 @@ dbconnection()
 
 
 export {pool}
+// Remember to use correct schema name for database queries. Otherwise, public schema will get populated instead of the schema you desire.
