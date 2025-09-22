@@ -9,7 +9,7 @@ import cookieParser from "cookie-parser"
 // All the middlewares except one.
 const app = express()
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"))
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
@@ -29,8 +29,8 @@ import userRouter from "./Routes/user.routes.js"
 
 
 /* Sends to appropriate router.*/
-app.use("/",dummyRouter)
-app.use("/user",userRouter)
+app.use("/", dummyRouter)
+app.use("/user", userRouter)
 
 
 /*<<<<<---------------------------------------------------------------------------------------------------------------------------------->>>>>*/
@@ -42,4 +42,4 @@ app.use("/user",userRouter)
 app.use(errorHandler)
 
 
-export {app}
+export { app }
